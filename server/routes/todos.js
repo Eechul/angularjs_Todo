@@ -10,7 +10,6 @@ todos.get('/', function(req, res, next) {
 });
 
 todos.delete('/delete/:id', (req, res, next) => {
-    
     Todo.remove({_id: req.params.id}, (err) => {    
         if(err) throw err 
         else {
@@ -42,7 +41,6 @@ todos.post('/add', (req, res, next) => {
 })
 
 todos.put('/put', (req, res, next) => {
-    console.log(req.body);
     let putTodoItem = req.body
     Todo.findOneAndUpdate(
         {_id: req.body._id},

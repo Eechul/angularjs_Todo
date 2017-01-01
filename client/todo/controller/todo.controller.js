@@ -40,14 +40,14 @@ app.controller('TodoCtrl', ($scope, $http) => {
     })
   }
   
-  $scope.update = function(todo, index) {
-    $http.put("todo/put", JSON.stringify(todo))
+  $scope.update = function(index) {
+    console.log($scope.todos[index])
+    $http.put("todo/put", JSON.stringify($scope.todos[index]))
     .then( (response) => {
       if(response.data) {
-        console.log(response.data, index);
-        $scope.todos[index] = response.data;
+        // success
       } else {
-
+        console.log('TodoCtrl put Error!')
       }
     })
   }
