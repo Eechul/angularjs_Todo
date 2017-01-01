@@ -22,11 +22,7 @@ todos.delete('/delete/:id', (req, res, next) => {
 });
 
 todos.post('/add', (req, res, next) => {
-    let newTodoItem = new Todo({
-        title: req.body.title,
-        completed: req.body.completed,
-        createAt: req.body.createAt
-    })
+    let newTodoItem = new Todo(req.body);
 
     newTodoItem.save( (err, doc) => {
         if(err) throw err;
